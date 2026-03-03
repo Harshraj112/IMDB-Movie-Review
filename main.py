@@ -28,8 +28,15 @@ word_index, reverse_word_index, model = load_resources()
 # Step 3: Helper Functions
 # Function to preprocess user input
 def preprocess_text(text):
+    max_features = 10000
     words = text.lower().split()
-    encoded_review = [word_index.get(word, 2) + 3 for word in words]
+    encoded_review = []
+    for word in words:
+        index = word_index.get(word, None)
+        if index is not None and (index + 3) < max_features:
+            encoded_review.append(index + 3)
+        else:
+            encoded_review.append(2)  # OOV token
     padded_review = sequence.pad_sequences([encoded_review], maxlen=500)
     return padded_review
 
