@@ -13,6 +13,7 @@ A deep learning project that builds a **Simple RNN** model to classify IMDB movi
 | `prediction.ipynb` | Loads the trained model and runs sentiment predictions on sample reviews |
 | `main.py` | Streamlit web application for interactive sentiment analysis |
 | `simple_rnn_imdb.h5` | Pre-trained Simple RNN model file |
+| `test_model.py` | Test suite to verify model predictions on sample reviews |
 | `requirements.txt` | Python dependencies |
 
 ---
