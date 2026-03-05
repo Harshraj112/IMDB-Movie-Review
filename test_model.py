@@ -93,7 +93,7 @@ def test_positive_reviews(word_index, model):
         print(f"    '{review[:60]}...' -> {sentiment} ({score:.4f})")
 
     positive_count = sum(1 for _, s, _ in results if s == 'Positive')
-    assert positive_count >= 3, (
+    assert positive_count >= 4, (
         f"Only {positive_count}/5 positive reviews classified correctly"
     )
     print(f"  PASS: {positive_count}/5 positive reviews classified as Positive")
@@ -115,7 +115,7 @@ def test_negative_reviews(word_index, model):
         print(f"    '{review[:60]}...' -> {sentiment} ({score:.4f})")
 
     negative_count = sum(1 for _, s, _ in results if s == 'Negative')
-    assert negative_count >= 3, (
+    assert negative_count >= 4, (
         f"Only {negative_count}/5 negative reviews classified correctly"
     )
     print(f"  PASS: {negative_count}/5 negative reviews classified as Negative")
