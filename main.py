@@ -4,14 +4,6 @@ import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import load_model
-from tensorflow.keras.layers import SimpleRNN
-
-# Patch SimpleRNN to handle legacy kwargs from TF 2.15 saved models
-_original_simple_rnn_init = SimpleRNN.__init__
-def _patched_simple_rnn_init(self, *args, **kwargs):
-    kwargs.pop('time_major', None)
-    _original_simple_rnn_init(self, *args, **kwargs)
-SimpleRNN.__init__ = _patched_simple_rnn_init
 
 # Load the IMDB dataset word index
 word_index = imdb.get_word_index()

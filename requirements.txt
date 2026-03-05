@@ -1,8 +1,7 @@
-tensorflow
+tensorflow==2.15.0
+numpy<2
 pandas
-numpy
 scikit-learn
-tensorboard
 matplotlib
 streamlit
-scikeras
+protobuf>=3.20,<5
