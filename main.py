@@ -58,11 +58,15 @@ if st.button('Classify'):
             # Make prediction
             prediction = model.predict(preprocessed_input)
             score = float(prediction[0][0])
-            sentiment = 'Positive' if score > 0.5 else 'Negative'
 
-            # Display the result
-            st.write(f'Sentiment: {sentiment}')
-            st.write(f'Prediction Score: {score:.4f}')
+            if np.isnan(score):
+                st.error('Model returned an invalid prediction. Please retrain the model.')
+            else:
+                sentiment = 'Positive' if score > 0.5 else 'Negative'
+
+                # Display the result
+                st.write(f'Sentiment: {sentiment}')
+                st.write(f'Prediction Score: {score:.4f}')
         except Exception as e:
             st.error(f'Error during prediction: {e}')
 else:
