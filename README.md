@@ -35,8 +35,8 @@ Full pipeline to train the sentiment analysis model:
 2. **Data Inspection** — Decodes integer-encoded reviews back to text using a reverse word index.
 3. **Preprocessing** — Pads all sequences to a max length of 500.
 4. **Model Architecture:**
-   - `Embedding` layer — 10,000 vocab, 128-dimensional embeddings
-   - `SimpleRNN` layer — 128 units, ReLU activation
+   - `Embedding` layer — 10,000 vocab, 32-dimensional embeddings
+   - `SimpleRNN` layer — 32 units, ReLU activation
    - `Dense` output layer — 1 unit, Sigmoid activation (binary classification)
 5. **Training** — Compiled with Adam optimizer and binary crossentropy loss. Trained for 10 epochs with batch size 32, 20% validation split, and `EarlyStopping` (patience=5, restore best weights).
 6. **Model Saving** — Saves the trained model as `simple_rnn_imdb.h5`.
@@ -120,8 +120,8 @@ pip install -r requirements.txt
 
 | Layer | Type | Output Shape | Details |
 |-------|------|-------------|---------|
-| 1 | Embedding | (None, 500, 128) | 10,000 vocab, 128-dim vectors |
-| 2 | SimpleRNN | (None, 128) | 128 units, ReLU activation |
+| 1 | Embedding | (None, 500, 32) | 10,000 vocab, 32-dim vectors |
+| 2 | SimpleRNN | (None, 32) | 32 units, ReLU activation |
 | 3 | Dense | (None, 1) | Sigmoid activation |
 
 ---
