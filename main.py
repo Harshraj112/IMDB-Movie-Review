@@ -73,7 +73,7 @@ if st.button('Classify'):
     # Store and display the result
     st.session_state.result = (sentiment, float(prediction[0][0]))
     st.write(f'Sentiment: {sentiment}')
-    st.write(f'Prediction Score: {prediction[0][0]})
+    st.write(f'Prediction Score: {prediction[0][0]}')
 else:
     st.write('Please enter a movie review.')
 
